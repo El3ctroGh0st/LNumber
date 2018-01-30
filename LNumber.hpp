@@ -38,7 +38,7 @@ private:
 
 LNumber operator+(LNumber, const LNumber &);
 LNumber operator+(LNumber, const int &);
-//LNumber operator-(LNumber, const LNumber &);
+LNumber operator-(LNumber, const LNumber &);
 //LNumber operator*(LNumber, const LNumber &);
 //LNumber operator/(LNumber, const LNumber &);
 
