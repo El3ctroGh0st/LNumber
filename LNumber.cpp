@@ -94,19 +94,19 @@ LNumber &LNumber::operator*=(const LNumber &lnum)
 			currSum.push_front(remainder);
 			remainder = 0;
 		}
+
+		for(int j = i; j < vec2Size - 1; ++j)
+		{
+			currSum.push_back(0);
+		}
 		sumsVector.push_back(currSum);
 	}
 
-	//WORK ON ADDITION OF SUMS
-	/*for(size_t i = 0; i < sumsVector.size(); ++i)
+	//Print all elements
+	for(int i = 0; i < sumsVector.size(); ++i)
 	{
-		std::cout << "Vector: " << std::endl;
-		std::cout << sumsVector.at(i).at(0) << " " << sumsVector.at(i).at(1) << std::endl;
-		LNumber sums(sumsVector.at(i));
-		resVector += sums;
-	}*/
-
-
+		resVector += sumsVector.at(i);
+	}
 
 	this->nums = resVector.nums;
 	return *this;
@@ -132,6 +132,11 @@ LNumber operator+(LNumber lhs, const int &rhs)
 {
 	LNumber num(std::to_string(rhs));
 	lhs += num;
+	return lhs;
+}
+LNumber operator*(LNumber lhs, const LNumber &rhs)
+{
+	lhs *= rhs;
 	return lhs;
 }
 std::ostream &operator<<(std::ostream &os, const LNumber &lnum)

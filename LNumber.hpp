@@ -38,8 +38,8 @@ private:
 
 LNumber operator+(LNumber, const LNumber &);
 LNumber operator+(LNumber, const int &);
-LNumber operator-(LNumber, const LNumber &);
-//LNumber operator*(LNumber, const LNumber &);
+//LNumber operator-(LNumber, const LNumber &);
+LNumber operator*(LNumber, const LNumber &);
 //LNumber operator/(LNumber, const LNumber &);
 
 #endif //CODEWARS_LNUMBER_HPP

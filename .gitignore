@@ -30,3 +30,5 @@
 *.out
 *.app
 
+### test files
+main.cpp
