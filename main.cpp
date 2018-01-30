@@ -8,12 +8,12 @@
 
 int main()
 {
-	LNumber num1("5245872934");
-	LNumber num2 ("2313427365270532658");
+	LNumber num1("317486589346576349675369743658746534");
 
-	LNumber num3 = num1 * num2;
+	//LNumber num3 = num1 * num2;
+	num1 ^= 30;
 
-	std::cout << num3;
+	std::cout << num1;
 
 	return 0;
 }

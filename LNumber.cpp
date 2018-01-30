@@ -111,6 +111,13 @@ LNumber &LNumber::operator*=(const LNumber &lnum)
 	this->nums = resVector.nums;
 	return *this;
 }
+LNumber &LNumber::operator^=(const int exponent)
+{
+	LNumber origVal = *this;
+	for(int i = 2; i <= exponent; ++i)
+		*this *= origVal;
+	return *this;
+}
 LNumber &LNumber::operator++()
 {
 	LNumber num("1");

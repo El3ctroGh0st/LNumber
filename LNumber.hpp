@@ -16,6 +16,7 @@ public:
 	LNumber &operator=(const LNumber &);
 	LNumber &operator+=(const LNumber &);
 	LNumber &operator*=(const LNumber &);
+	LNumber &operator^=(const int);
 
 	LNumber &operator++();
 	LNumber operator++(int);
