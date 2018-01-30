@@ -3,11 +3,13 @@
 
 //Support for negative numbers
 //Fix addition of sums
-
-LNumber operator+(LNumber, const LNumber &);
+//Test 3
+//Test 4
 
 int main()
 {
+	//Test
+	//Test 2
 	LNumber num1("230");
 	LNumber num2 ("23");
 
