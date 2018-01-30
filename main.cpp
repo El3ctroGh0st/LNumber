@@ -8,6 +8,7 @@ LNumber operator+(LNumber, const LNumber &);
 
 int main()
 {
+	//Test
 	LNumber num1("230");
 	LNumber num2 ("23");
 

@@ -13,7 +13,7 @@ public:
 	LNumber(std::deque<short>);
 	~LNumber() = default;
 
-	LNumber operator=(const LNumber &);
+	LNumber &operator=(const LNumber &);
 	LNumber &operator+=(const LNumber &);
 	LNumber &operator*=(const LNumber &);
 
