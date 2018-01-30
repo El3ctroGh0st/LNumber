@@ -3,8 +3,6 @@
 
 //Support for negative numbers
 //Fix addition of sums
-//Test 3
-//Test 4
 
 int main()
 {
