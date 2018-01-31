@@ -15,12 +15,14 @@ public:
 
 	LNumber &operator=(const LNumber &);
 	LNumber &operator+=(const LNumber &);
+	LNumber &operator-=(const LNumber &);
 	LNumber &operator*=(const LNumber &);
 	LNumber &operator^=(const int);
 
 	LNumber &operator++();
 	LNumber operator++(int);
 	LNumber &operator--();
+	LNumber operator--(int);
 
 	int operator[](std::size_t n) {return nums.at(n);}
 
@@ -39,7 +41,8 @@ private:
 
 LNumber operator+(LNumber, const LNumber &);
 LNumber operator+(LNumber, const int &);
-//LNumber operator-(LNumber, const LNumber &);
+LNumber operator-(LNumber, const LNumber &);
+LNumber operator-(LNumber, const int &);
 LNumber operator*(LNumber, const LNumber &);
 //LNumber operator/(LNumber, const LNumber &);
 

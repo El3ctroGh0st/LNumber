@@ -67,6 +67,51 @@ LNumber &LNumber::operator+=(const LNumber &lnum)
 	this->nums = resVector;
 	return *this;
 }
+LNumber &LNumber::operator-=(const LNumber &lnum)
+{
+	std::deque<short> resVector;
+	LNumber leftNum = lnum;
+
+	//No negative numbers as result
+	if(leftNum > *this)
+		return *this;
+
+	while(this->nums.size() > leftNum.nums.size())
+		leftNum.nums.push_front(0);
+
+	size_t vecSize = this->nums.size();
+
+	for(int i = 0; i < vecSize; ++i)
+	{
+		short minuend = this->nums.at(vecSize - i - 1);
+		short subtrahend = leftNum.nums.at(vecSize - i - 1);
+		if(this->nums.at(vecSize - i - 1) < leftNum.nums.at(vecSize - i - 1))
+		{
+			//Previous element contains zero
+			int prevVecPos = vecSize - i - 2;
+			if(this->nums.at(prevVecPos) == 0)
+			{
+				for(; prevVecPos >= 0 && this->nums.at(prevVecPos) != 0; --prevVecPos)
+				{
+					std::cout << prevVecPos;
+					this->nums.at(prevVecPos) = 9;
+				}
+			}
+
+			//Fix subtraction with zeros
+			minuend += 10;
+			--this->nums.at(prevVecPos);
+		}
+		std::cout << minuend - subtrahend << " ";
+		resVector.push_front(minuend - subtrahend);
+	}
+
+	while(resVector.at(0) == 0)
+		 resVector.erase(resVector.begin());
+
+	*this = resVector;
+	return *this;
+}
 LNumber &LNumber::operator*=(const LNumber &lnum)
 {
 	std::vector<std::deque<short>> sumsVector;
@@ -130,6 +175,18 @@ LNumber LNumber::operator++(int)
 	++*this;
 	return num;
 }
+LNumber &LNumber::operator--()
+{
+	LNumber num("1");
+	*this -= num;
+	return *this;
+}
+LNumber LNumber::operator--(int)
+{
+	LNumber num = *this;
+	--*this;
+	return num;
+}
 LNumber operator+(LNumber lhs, const LNumber &rhs)
 {
 	lhs += rhs;
@@ -144,6 +201,17 @@ LNumber operator+(LNumber lhs, const int &rhs)
 LNumber operator*(LNumber lhs, const LNumber &rhs)
 {
 	lhs *= rhs;
+	return lhs;
+}
+LNumber operator-(LNumber lhs, const LNumber &rhs)
+{
+	lhs -= rhs;
+	return lhs;
+}
+LNumber operator-(LNumber lhs, const int &rhs)
+{
+	LNumber num(std::to_string(rhs));
+	lhs -= num;
 	return lhs;
 }
 std::ostream &operator<<(std::ostream &os, const LNumber &lnum)
